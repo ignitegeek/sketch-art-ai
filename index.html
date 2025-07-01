@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sketch Art Generator | IgniteGeek</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <h1>🖼️ Convert Your Photo to Sketch</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data" aria-label="Upload photo form">
+        <input type="file" name="photo" accept="image/*" required aria-required="true" />
+        <button type="submit">Convert to Sketch</button>
+    </form>
+    <p class="status">Status: <strong>{{ 'Paid Mode' if is_paid else 'Free Mode' }}</strong></p>
+    <a class="toggle-link" href="/admin/toggle" aria-label="Toggle between free and paid mode">Toggle Mode</a>
+</body>
+</html>

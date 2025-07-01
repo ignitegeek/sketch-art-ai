@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sketch Result | IgniteGeek</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <h1>🎨 Sketch Created!</h1>
+    <div class="image-container" role="region" aria-label="Original and Sketch images">
+        <div class="image-card">
+            <h3>Original</h3>
+            <img src="{{ original }}" alt="Original uploaded photo" />
+        </div>
+        <div class="image-card">
+            <h3>Sketch</h3>
+            <img src="{{ result }}" alt="Generated sketch art" />
+            {% if not is_paid %}
+                <a href="{{ result }}" download class="download-link" aria-label="Download sketch art">⬇️ Download Sketch</a>
+            {% endif %}
+        </div>
+    </div>
+    {% if is_paid %}
+        <p style="font-weight: 600; color: #555; text-align: center;">
+          💳 Paid Mode is ON: Download will require payment integration soon.
+        </p>
+    {% endif %}
+    <a href="/" class="back-link" aria-label="Go back to upload page">← Go Back</a>
+</body>
+</html>
